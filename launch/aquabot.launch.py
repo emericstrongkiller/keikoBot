@@ -41,9 +41,18 @@ def generate_launch_description():
         output='screen'                 # Affiche les logs dans le terminal
     )
 
+    qr_code_reader_node = Node(
+        package='qr_code_V2_pkg',       # Ton package
+        executable='qr_code_reader',  # L'exécutable configuré dans setup.py
+        output='screen'                 # Affiche les logs dans le terminal
+    )
+
+
     # Ajouter toutes les actions à LaunchDescription
     ld.add_action(aquabot_competition_launch_file)
     ld.add_action(aquabot_example_node)
     ld.add_action(qr_code_detector_node)
+    ld.add_action(qr_code_reader_node)
+
 
     return ld

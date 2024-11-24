@@ -15,6 +15,7 @@ class QRCodeDetector(Node):
 
         # Publisher for detection status
         self.qr_status_publisher = self.create_publisher(String, '/qr_code_detection/status', 10)
+        self.qr_code_raw_publisher = self.create_publisher(String, '/qr_code_raw', 10)
 
         # Subscriber for image data
         self.create_subscription(
@@ -26,24 +27,23 @@ class QRCodeDetector(Node):
 
         self.get_logger().info("QR Code Detection Node Initialized.")
 
-    def image_callback(self, msg):
-        try:
-            # Convert ROS image to OpenCV image
-            cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
-        except CvBridgeError as e:
-            self.get_logger().error(f"Failed to convert image: {e}")
-            return
+def image_callback(self, msg):
+    try:
+        # Convertir l'image ROS en image OpenCV
+        cv_image = self.bridge.imgmsg_to_cv2(msg, "bgr8")
+    except CvBridgeError as e:
+        self.get_logger().error(f"Failed to convert image: {e}")
+        return
 
-        # Detect QR code (bbox is not None if a QR code is detected)
-        _, bbox, _ = self.qr_decoder.detectAndDecode(cv_image)
+    # Détection et décodage du QR code
+    data, bbox, _ = self.qr_decoder.detectAndDecode(cv_image)
 
-        if bbox is not None:
-            self.get_logger().info("QR Code Detected.")
-            self.qr_status_publisher.publish(String(data="QR Code Detected"))
-        else:
-            self.get_logger().info("No QR Code Detected.")
-            self.qr_status_publisher.publish(String(data="No QR Code Detected"))
-
+    if data:
+        self.get_logger().info(f"QR Code Detected")
+        # Publier les données brutes du QR code pour le script `qr_code_reader`
+        self.qr_code_raw_publisher.publish(String(data=data))
+    else:
+        self.get_logger().info("No QR Code Detected.")
 
 def main(args=None):
     rclpy.init(args=args)
