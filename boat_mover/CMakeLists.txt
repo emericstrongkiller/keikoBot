@@ -16,24 +16,6 @@ find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(std_msgs REQUIRED)
 
-# Add the executable for sensor_acqu_node
-add_executable(sensor_acqu_node src/sensor_acqu_node.cpp)
-ament_target_dependencies(sensor_acqu_node
-  rclcpp
-  sensor_msgs
-  nav_msgs
-  geometry_msgs
-  tf2
-  tf2_ros
-  tf2_geometry_msgs
-)
-
-# Install sensor_acqu_node executable
-install(TARGETS
-  sensor_acqu_node
-  DESTINATION lib/${PROJECT_NAME}
-)
-
 # Add the executable for mover_node
 add_executable(mover_node src/mover_node.cpp)
 ament_target_dependencies(mover_node
