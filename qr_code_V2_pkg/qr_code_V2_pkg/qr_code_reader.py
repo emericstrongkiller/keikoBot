@@ -1,19 +1,20 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
+import json
 
 
 class QRCodeReader(Node):
     def __init__(self):
         super().__init__('qr_code_reader')
 
-        # Publisher pour publier les informations décodées du QR code
+        # Publisher for formatted QR code data
         self.qr_code_publisher = self.create_publisher(String, '/qr_code_data', 10)
 
-        # Subscriber pour recevoir les QR codes détectés (par exemple, sous forme brute ou données intermédiaires)
+        # Subscriber to receive raw QR code data
         self.create_subscription(
-            String,  # Suppose que `qr_code_detector` publie les données brutes du QR code
-            '/qr_code_raw',  # Topic où `qr_code_detector` publie les informations du QR code
+            String,  # qr_code_detector publishes raw QR code data
+            '/qr_code_raw',  # Topic where qr_code_detector publishes raw QR code data
             self.qr_code_callback,
             10
         )
@@ -21,17 +22,24 @@ class QRCodeReader(Node):
         self.get_logger().info("QR Code Reader Node Initialized.")
 
     def qr_code_callback(self, msg):
-        # Récupère les données du QR code publiées par `qr_code_detector`
-        qr_code_raw = msg.data
 
-        # Traitement ou extraction des informations du QR code (si nécessaire)
-        qr_code_data = f"Decoded QR Code: {qr_code_raw}"
+        # Get raw QR code data from qr_code_detector
+        qr_code_data = msg.data
 
-        # Log des informations pour vérification
-        self.get_logger().info(qr_code_data)
+        try:
+            # Analyse and format the raw JSON QR code data
+            parsed_data = json.loads(qr_code_data) 
+            formatted_data = json.dumps(parsed_data, indent=4)  # Styling JSON with indentation
 
-        # Publie les données décodées sur un autre topic
-        #self.qr_code_publisher.publish(String(data=qr_code_data))
+            # Publish formatted QR code data to topic
+            self.qr_code_publisher.publish(String(data=formatted_data))
+
+
+        # If data is not in JSON format
+        except json.JSONDecodeError as e:
+            error_message = f"Invalid JSON received: {qr_code_data}"
+            self.get_logger().error(error_message)
+            self.qr_code_publisher.publish(String(data=error_message))
 
 
 def main(args=None):
