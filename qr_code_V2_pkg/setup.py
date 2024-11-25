@@ -21,6 +21,7 @@ setup(
         'console_scripts': [
             'qr_code_detector = qr_code_V2_pkg.qr_code_detector:main',
             'qr_code_reader = qr_code_V2_pkg.qr_code_reader:main',
+            'wind_turbine_perimeter = qr_code_V2_pkg.wind_turbine_perimeter:main',
         ],
     },
 )

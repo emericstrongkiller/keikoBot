@@ -1,0 +1,45 @@
+[0.550s] Invoking command in '/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/qr_code_V2_pkg': PYTHONPATH=/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/qr_code_V2_pkg build --build-base /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build install --record /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/install.log --single-version-externally-managed install_data
+[0.765s] running egg_info
+[0.765s] creating ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info
+[0.766s] writing ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/PKG-INFO
+[0.766s] writing dependency_links to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/dependency_links.txt
+[0.766s] writing entry points to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/entry_points.txt
+[0.767s] writing requirements to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/requires.txt
+[0.767s] writing top-level names to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/top_level.txt
+[0.767s] writing manifest file '../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/SOURCES.txt'
+[0.768s] reading manifest file '../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/SOURCES.txt'
+[0.770s] writing manifest file '../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/SOURCES.txt'
+[0.770s] running build
+[0.770s] running build_py
+[0.770s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build
+[0.770s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib
+[0.771s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+[0.771s] copying qr_code_V2_pkg/qr_code_reader.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+[0.771s] copying qr_code_V2_pkg/__init__.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+[0.771s] copying qr_code_V2_pkg/qr_code_detector.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+[0.771s] copying qr_code_V2_pkg/wind_turbine_perimeter.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+[0.771s] running install
+[0.772s] running install_lib
+[0.772s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+[0.772s] copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/qr_code_reader.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+[0.772s] copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/__init__.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+[0.773s] copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/qr_code_detector.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+[0.773s] copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/wind_turbine_perimeter.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+[0.773s] byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/qr_code_reader.py to qr_code_reader.cpython-310.pyc
+[0.774s] byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/__init__.py to __init__.cpython-310.pyc
+[0.774s] byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/qr_code_detector.py to qr_code_detector.cpython-310.pyc
+[0.775s] byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/wind_turbine_perimeter.py to wind_turbine_perimeter.cpython-310.pyc
+[0.775s] running install_data
+[0.775s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index
+[0.776s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index/resource_index
+[0.776s] creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index/resource_index/packages
+[0.776s] copying resource/qr_code_V2_pkg -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index/resource_index/packages
+[0.776s] copying package.xml -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/qr_code_V2_pkg
+[0.776s] running install_egg_info
+[0.777s] Copying ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg-0.0.1-py3.10.egg-info
+[0.778s] running install_scripts
+[0.798s] Installing qr_code_detector script to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/qr_code_V2_pkg
+[0.805s] Installing qr_code_reader script to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/qr_code_V2_pkg
+[0.805s] Installing wind_turbine_perimeter script to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/qr_code_V2_pkg
+[0.805s] writing list of installed files to '/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/install.log'
+[0.827s] Invoked command in '/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/qr_code_V2_pkg' returned '0': PYTHONPATH=/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated setup.py egg_info --egg-base ../build/qr_code_V2_pkg build --build-base /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build install --record /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/install.log --single-version-externally-managed install_data
