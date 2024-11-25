@@ -8,9 +8,12 @@ class QRCodeReader(Node):
     def __init__(self):
         super().__init__('qr_code_reader')
 
-        # Publisher for formatted QR code data
-        self.qr_code_publisher = self.create_publisher(String, '/qr_code_data', 10)
-
+        # Publisher for formatted QR code data to be used by wind_turbine_inspection
+        self.wind_turbine_report_publisher = self.create_publisher(
+            String,
+            '/vrx/windturbineinspection/windturbine_checkup',
+            10
+        )
         # Subscriber to receive raw QR code data
         self.create_subscription(
             String,  # qr_code_detector publishes raw QR code data
@@ -29,10 +32,11 @@ class QRCodeReader(Node):
         try:
             # Analyse and format the raw JSON QR code data
             parsed_data = json.loads(qr_code_data) 
-            formatted_data = json.dumps(parsed_data, indent=4)  # Styling JSON with indentation
-
+            report = f"ID: {parsed_data['id']}\n" \
+                    f"Status: {parsed_data['state']}\n" \
+                        
             # Publish formatted QR code data to topic
-            self.qr_code_publisher.publish(String(data=formatted_data))
+            self.wind_turbine_report_publisher.publish(String(data=report))
 
 
         # If data is not in JSON format
