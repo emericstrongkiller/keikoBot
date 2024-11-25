@@ -4,6 +4,7 @@ from sensor_msgs.msg import NavSatFix
 from geometry_msgs.msg import PoseArray
 from std_msgs.msg import String
 import math
+import subprocess
 
 
 class WindTurbinePerimeterDetector(Node):
@@ -40,13 +41,12 @@ class WindTurbinePerimeterDetector(Node):
 
         self.wind_turbines = []  # List of wind turbine positions [(x, y)]
         self.boat_position = None  # Current position of the boat (x, y)
+        
 
         self.get_logger().info("Wind Turbine Perimeter Detector Node Initialized.")
 
     def wind_turbines_callback(self, msg):
-        """
-        Callback to retrieve wind turbine positions and convert them to Cartesian coordinates.
-        """
+
         if self.ref_lat is None or self.ref_lon is None:
             self.get_logger().info("Waiting for GPS reference to initialize wind turbine positions.")
             return
@@ -58,17 +58,13 @@ class WindTurbinePerimeterDetector(Node):
             longitude = pose.position.y
             x, y = self.convert_gps_to_cartesian(latitude, longitude)
             self.wind_turbines.append((x, y))
-            self.get_logger().info(f"Converted wind turbine GPS ({latitude}, {longitude}) -> Cartesian ({x:.2f}, {y:.2f})")
 
     def boat_gps_callback(self, msg):
-        """
-        Callback to retrieve the boat's GPS position and check if it is within the perimeter.
-        """
+
         # Initialize GPS reference if necessary
         if self.ref_lat is None or self.ref_lon is None:
             self.ref_lat = msg.latitude
             self.ref_lon = msg.longitude
-            self.get_logger().info(f"Initialized GPS reference: lat={self.ref_lat}, lon={self.ref_lon}")
             return
 
         # Convert the boat's GPS position to Cartesian coordinates
@@ -114,11 +110,6 @@ class WindTurbinePerimeterDetector(Node):
         x = self.earth_radius * (lon_rad - ref_lon_rad) * math.cos(ref_lat_rad)
         y = self.earth_radius * (lat_rad - ref_lat_rad)
 
-        # Log the conversion results
-        self.get_logger().info(
-            f"Converted GPS ({latitude}, {longitude}) -> Cartesian ({x:.2f}, {y:.2f}) with reference ({self.ref_lat}, {self.ref_lon})"
-        )
-
         return x, y
 
     def publish_status(self, status, turbine_id):
@@ -128,6 +119,12 @@ class WindTurbinePerimeterDetector(Node):
         message = f"{status},{turbine_id}"
         self.perimeter_status_publisher.publish(String(data=message))
         self.get_logger().info(f"Published status: {message}")
+        
+        if status == "IN_PERIMETER":
+            self.get_logger().info("Activating QR Code Reader.")
+            self.qr_code_detector_process = subprocess.Popen(
+                ['ros2', 'run', 'qr_code_V2_pkg', 'qr_code_detector']
+            )
 
 
 def main(args=None):

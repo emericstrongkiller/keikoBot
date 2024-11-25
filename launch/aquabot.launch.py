@@ -5,6 +5,8 @@ from launch_ros.actions import Node
 
 import os
 from ament_index_python.packages import get_package_share_directory
+from launch.actions import LogInfo
+
 
 def generate_launch_description():
     ld = LaunchDescription()
@@ -57,9 +59,6 @@ def generate_launch_description():
     # Ajouter toutes les actions à LaunchDescription
     ld.add_action(aquabot_competition_launch_file)
     ld.add_action(aquabot_example_node)
-    ld.add_action(qr_code_detector_node)
-    ld.add_action(qr_code_reader_node)
     ld.add_action(wind_turbine_perimeter_node)
-
 
     return ld
