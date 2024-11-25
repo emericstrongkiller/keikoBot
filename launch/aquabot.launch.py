@@ -5,13 +5,11 @@ from launch_ros.actions import Node
 
 import os
 from ament_index_python.packages import get_package_share_directory
-from launch.actions import LogInfo
-
 
 def generate_launch_description():
     ld = LaunchDescription()
 
-    # Argument pour le monde à charger
+    # Argument for the world to load
     default_world_name = 'aquabot_regatta'
     world_arg = DeclareLaunchArgument(
         'world',
@@ -20,7 +18,7 @@ def generate_launch_description():
     )
     ld.add_action(world_arg)
 
-    # Inclure le fichier de lancement pour la simulation
+    # Include the launch file for simulation
     aquabot_competition_launch_file = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(
             os.path.join(get_package_share_directory('aquabot_gz'),
@@ -29,36 +27,44 @@ def generate_launch_description():
         launch_arguments={'world': 'aquabot_windturbines_easy', 'competition_mode': 'true'}.items()
     )
 
-    # Ajouter le nœud d'exemple (aquabot_node)
+    # Add example node (aquabot_node)
     aquabot_example_node = Node(
         package='aquabot_example',
         executable='aquabot_node',
         output='screen'
     )
 
-    # Ajouter le nœud de détection de QR code
+    # Add QR code-related nodes
     qr_code_detector_node = Node(
-        package='qr_code_V2_pkg',       # Ton package
-        executable='qr_code_detector',  # L'exécutable configuré dans setup.py
-        output='screen'                 # Affiche les logs dans le terminal
+        package='qr_code_V2_pkg',       
+        executable='qr_code_detector',  
+        output='screen'                 
     )
 
     qr_code_reader_node = Node(
-        package='qr_code_V2_pkg',       # Ton package
-        executable='qr_code_reader',  # L'exécutable configuré dans setup.py
-        output='screen'                 # Affiche les logs dans le terminal
+        package='qr_code_V2_pkg',       
+        executable='qr_code_reader',  
+        output='screen'                 
     )
 
     wind_turbine_perimeter_node = Node(
-        package='qr_code_V2_pkg',       # Ton package
-        executable='wind_turbine_perimeter',  # L'exécutable configuré dans setup.py
-        output='screen'                 # Affiche les logs dans le terminal
+        package='qr_code_V2_pkg',       
+        executable='wind_turbine_perimeter',  
+        output='screen'                 
     )
 
+    # Include the C++ node from boat_mover
+    boat_mover_node = Node(
+        package='boat_mover',
+        executable='mover_node',
+        name='mover_node',
+        output='screen'
+    )
 
-    # Ajouter toutes les actions à LaunchDescription
+    # Add all actions to LaunchDescription
     ld.add_action(aquabot_competition_launch_file)
     ld.add_action(aquabot_example_node)
     ld.add_action(wind_turbine_perimeter_node)
+    ld.add_action(boat_mover_node)
 
     return ld
