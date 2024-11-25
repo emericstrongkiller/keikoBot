@@ -4,8 +4,6 @@ from sensor_msgs.msg import Image
 from std_msgs.msg import String
 from cv_bridge import CvBridge, CvBridgeError
 import cv2
-import subprocess
-
 
 class QRCodeDetector(Node):
     def __init__(self):
@@ -26,11 +24,7 @@ class QRCodeDetector(Node):
             10
         )
 
-        self.get_logger().info("Activating QR Code Reader.")
-        self.qr_code_detector_process = subprocess.Popen(
-                ['ros2', 'run', 'qr_code_V2_pkg', 'qr_code_reader']
-            )
-        self.get_logger().info("QR Code Reader Node Initialized.")
+        self.get_logger().info("QR Code Detection Node Initialized.")
 
     def image_callback(self, msg):
         try:

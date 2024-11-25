@@ -1,0 +1,43 @@
+running egg_info
+creating ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info
+writing ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/PKG-INFO
+writing dependency_links to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/dependency_links.txt
+writing entry points to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/entry_points.txt
+writing requirements to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/requires.txt
+writing top-level names to ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/top_level.txt
+writing manifest file '../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/SOURCES.txt'
+reading manifest file '../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/SOURCES.txt'
+writing manifest file '../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+copying qr_code_V2_pkg/qr_code_reader.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+copying qr_code_V2_pkg/__init__.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+copying qr_code_V2_pkg/qr_code_detector.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+copying qr_code_V2_pkg/wind_turbine_perimeter.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg
+running install
+running install_lib
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/qr_code_reader.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/__init__.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/qr_code_detector.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+copying /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/build/lib/qr_code_V2_pkg/wind_turbine_perimeter.py -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg
+byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/qr_code_reader.py to qr_code_reader.cpython-310.pyc
+byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/__init__.py to __init__.cpython-310.pyc
+byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/qr_code_detector.py to qr_code_detector.cpython-310.pyc
+byte-compiling /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg/wind_turbine_perimeter.py to wind_turbine_perimeter.cpython-310.pyc
+running install_data
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index/resource_index
+creating /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index/resource_index/packages
+copying resource/qr_code_V2_pkg -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/ament_index/resource_index/packages
+copying package.xml -> /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/share/qr_code_V2_pkg
+running install_egg_info
+Copying ../build/qr_code_V2_pkg/qr_code_V2_pkg.egg-info to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/python3.10/site-packages/qr_code_V2_pkg-0.0.1-py3.10.egg-info
+running install_scripts
+Installing qr_code_detector script to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/qr_code_V2_pkg
+Installing qr_code_reader script to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/qr_code_V2_pkg
+Installing wind_turbine_perimeter script to /home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/install/lib/qr_code_V2_pkg
+writing list of installed files to '/home/oriane/vrx_ws/src/Aquabot-Competitor/keikoBot/build/qr_code_V2_pkg/install.log'
